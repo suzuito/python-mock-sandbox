@@ -30,9 +30,9 @@ def test_main1_async():
     ''' async関数をモックする例
 
     ハマりどころ
-      async関数のモックですが、return_valueにFutureを指定しないようにすること
-        return_value='Dummy response',               <- o
-        return_value=async_return('Dummy response'), <- x
+      hello_async関数の返り値にFutureを指定するように
+        return_value=async_return('Dummy response'), <- o
+        return_value='Dummy response',               <- x
     '''
     with patch(
              'python_mock_sandbox.app1.hello_async',
