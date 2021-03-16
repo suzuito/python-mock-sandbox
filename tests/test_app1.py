@@ -36,11 +36,10 @@ def test_main1_async():
     '''
     with patch(
              'python_mock_sandbox.app1.hello_async',
-             return_value='Dummy response',
+             return_value=async_return('Dummy response'),
          ) as hello_async_mock, \
          patch('python_mock_sandbox.app1.print') as print_mock:
-            loop = asyncio.get_event_loop()
-            loop.run_until_complete(main1_async())
+            asyncio.run(main1_async())
             hello_async_mock.assert_called_once_with('Kenshiro')
             print_mock.assert_called_once_with('Yo Dummy response')
 
